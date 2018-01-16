@@ -9,24 +9,18 @@ type state = {count: int};
 
 let component = reducerComponent("Counter");
 
-let factors = n => {
-  let rec range =
-    fun
-    | 0 => []
-    | n => range(n - 1) @ [n];
-  List.filter(v => n mod v == 0, range(n));
-};
+let rec range =
+  fun
+  | 0 => [0]
+  | n => range(n - 1) @ [n];
+
+let factors = n => List.filter(v => n mod v == 0, range(n));
 
 let rec fib =
   fun
   | 0 => 0
   | 1 => 1
   | n => fib(n - 1) + fib(n - 2);
-
-let rec range =
-  fun
-  | 0 => [0]
-  | n => range(n - 1) @ [n];
 
 let fibs = n => range(n) |> List.map(fib);
 

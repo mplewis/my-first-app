@@ -55,5 +55,4 @@ let make = _children => {
       <p> (s(sRange(state.count))) </p>
       <p> (s(sFibs(state.count))) </p>
     </div>
-  /* <p> (s(string_of_int(fib(state.count)))) </p> */
 };
